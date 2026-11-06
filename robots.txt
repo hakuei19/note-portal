@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://hakuei19.github.io/note-portal/sitemap.xml

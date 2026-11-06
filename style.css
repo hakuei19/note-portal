@@ -1,0 +1,43 @@
+:root {
+  --bg: #fafaf7;
+  --fg: #1f2328;
+  --muted: #5b6570;
+  --card: #ffffff;
+  --line: #e3e3dc;
+  --accent: #2f6f5e;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #15181b;
+    --fg: #e8eaed;
+    --muted: #9aa4ad;
+    --card: #1e2226;
+    --line: #2e3439;
+    --accent: #7cc5ad;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: system-ui, -apple-system, "Hiragino Sans", "Noto Sans JP", sans-serif;
+  line-height: 1.7;
+}
+a { color: var(--accent); }
+.wrap { max-width: 960px; margin: 0 auto; padding: 24px 16px; }
+h1 { font-size: 1.6rem; margin: 0 0 16px; }
+h2 { font-size: 1.2rem; margin: 24px 0 8px; }
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 16px; }
+.card .category { color: var(--muted); font-size: 0.85rem; }
+table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+th, td { border-bottom: 1px solid var(--line); padding: 6px 8px; text-align: left; }
+.table-scroll { overflow-x: auto; }
+.site-footer { border-top: 1px solid var(--line); color: var(--muted); font-size: 0.85rem; }
+.site-footer p { margin: 4px 0; }
+.site-header { margin-bottom: 16px; font-size: 0.9rem; }
+.site-header a { text-decoration: none; }
+.articles { padding-left: 1.2em; }
+.article .date, .article .price { color: var(--muted); font-size: 0.85rem; }
+.profile { white-space: pre-line; overflow-wrap: anywhere; }
