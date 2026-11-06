@@ -41,3 +41,9 @@ th, td { border-bottom: 1px solid var(--line); padding: 6px 8px; text-align: lef
 .articles { padding-left: 1.2em; }
 .article .date, .article .price { color: var(--muted); font-size: 0.85rem; }
 .profile { white-space: pre-line; overflow-wrap: anywhere; }
+.data-table td { font-variant-numeric: tabular-nums; }
+.data-table td:not(:first-child) { text-align: right; }
+.breadcrumb { font-size: 0.85rem; color: var(--muted); margin-bottom: 8px; }
+.period, .source, .note { color: var(--muted); font-size: 0.9rem; }
+.data-link { margin: 0 0 16px; }
+.years { columns: 4 8em; padding-left: 1.2em; }
