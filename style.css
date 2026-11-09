@@ -47,3 +47,85 @@ th, td { border-bottom: 1px solid var(--line); padding: 6px 8px; text-align: lef
 .period, .source, .note { color: var(--muted); font-size: 0.9rem; }
 .data-link { margin: 0 0 16px; }
 .years { columns: 4 8em; padding-left: 1.2em; }
+
+/* カテゴリの色（白い文字とのコントラスト 4.5 以上。tests/test_portal_images.py で確かめる） */
+.cat-kuji { --cat: #7a3b8f; --cat-soft: #efe3f3; }
+.cat-boat { --cat: #1d5fa6; --cat-soft: #e1ecf8; }
+.cat-keiba { --cat: #2a6b34; --cat-soft: #e2f0e4; }
+.cat-other { --cat: #5b6570; --cat-soft: #e9ecef; }
+@media (prefers-color-scheme: dark) {
+  .cat-kuji { --cat-soft: #3a2741; }
+  .cat-boat { --cat-soft: #1d2f45; }
+  .cat-keiba { --cat-soft: #1f3523; }
+  .cat-other { --cat-soft: #2b3035; }
+}
+.badge { display: inline-block; background: var(--cat); color: #ffffff; font-size: 0.8rem; font-weight: 600;
+  line-height: 1.4; padding: 2px 10px; border-radius: 999px; }
+
+/* 画像（ヘッダー・代用の帯） */
+.media { position: relative; aspect-ratio: 1.91 / 1; background: var(--cat-soft); overflow: hidden;
+  border-bottom: 4px solid var(--cat); }
+.media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.media.fallback { display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(135deg, var(--cat-soft), var(--card)); }
+.media.fallback .avatar { width: 34%; max-width: 160px; height: auto; aspect-ratio: 1 / 1; border-radius: 50%;
+  object-fit: cover; border: 4px solid var(--card); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); }
+.initial { width: 30%; max-width: 140px; aspect-ratio: 1 / 1; border-radius: 50%; background: var(--cat);
+  color: #ffffff; display: flex; align-items: center; justify-content: center; font-size: 2.4rem; font-weight: 700; }
+
+/* トップのカード（X のリンクカード風）：スマホ 1 列・PC 2〜3 列 */
+.cards { grid-template-columns: 1fr; gap: 20px; }
+@media (min-width: 640px) { .cards { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 900px) { .cards { grid-template-columns: repeat(3, 1fr); } }
+.card { padding: 0; overflow: hidden; display: flex; flex-direction: column;
+  transition: box-shadow 0.15s ease; }
+.card:hover { box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1); }
+.card-media { display: block; }
+.card-body { padding: 12px 16px 16px; }
+.card-body h2 { margin: 0 0 4px; font-size: 1.2rem; }
+.card-body h2 a { color: var(--fg); text-decoration: none; }
+.card-body h2 a:hover { text-decoration: underline; }
+.card .category { margin: 0 0 8px; }
+.card .profile { margin: 0 0 8px; font-size: 0.92rem; color: var(--fg); }
+.card .followers, .card .record { margin: 0 0 6px; font-size: 0.88rem; color: var(--muted); }
+.card .links { margin: 8px 0 0; font-size: 0.9rem; }
+
+/* 紹介ページの上部 */
+.hero { background: var(--card); border: 1px solid var(--line); border-radius: 12px; overflow: hidden;
+  margin-bottom: 12px; }
+.hero .media { aspect-ratio: 2.8 / 1; }
+.hero .media.fallback { aspect-ratio: 3.2 / 1; max-height: 220px; width: 100%; }
+.hero .media.fallback .avatar { max-width: 140px; }
+.identity { display: flex; align-items: flex-end; gap: 14px; padding: 0 16px 14px; }
+.identity .avatar { width: 88px; height: 88px; border-radius: 50%; object-fit: cover; flex: none;
+  margin-top: -44px; border: 4px solid var(--card); background: var(--card); position: relative; }
+.identity h1 { margin: 10px 0 2px; }
+.identity .category { margin: 0; }
+.listed-since { color: var(--muted); font-size: 0.88rem; margin: 4px 0; }
+
+/* 最新の記事（アイキャッチ付きのカード） */
+.articles { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr; gap: 12px; }
+@media (min-width: 640px) { .articles { grid-template-columns: repeat(2, 1fr); } }
+.article-card { display: flex; gap: 12px; align-items: stretch; background: var(--card); border: 1px solid var(--line);
+  border-radius: 10px; overflow: hidden; text-decoration: none; color: var(--fg); height: 100%; }
+.article-card:hover { box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1); }
+.article-card:hover .article-title { text-decoration: underline; }
+.thumb { flex: none; width: 38%; max-width: 200px; aspect-ratio: 1.91 / 1; background: var(--cat-soft); align-self: center; }
+.thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.thumb.fallback { background: linear-gradient(135deg, var(--cat-soft), var(--card)); border-right: 3px solid var(--cat); }
+.article-body { padding: 8px 12px 8px 0; display: flex; flex-direction: column; justify-content: center; min-width: 0; }
+.article-title { font-weight: 600; font-size: 0.95rem; line-height: 1.5; overflow-wrap: anywhere;
+  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.meta { margin-top: 4px; }
+a:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+/* 人気の記事（紹介ページの上のほう・トップのカードに 1 本） */
+.picks { margin: 8px 0 8px; }
+.card-pick { margin: 4px 0 8px; font-size: 0.88rem; border-top: 1px solid var(--line); padding-top: 8px; }
+.pick-label { display: block; color: var(--muted); font-size: 0.8rem; margin-bottom: 4px; }
+.card-pick a { display: flex; gap: 8px; align-items: center; color: var(--fg); text-decoration: none; }
+.card-pick a:hover span:last-child { text-decoration: underline; }
+.card-pick a > span:last-child { overflow-wrap: anywhere; display: -webkit-box; -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical; overflow: hidden; }
+.pick-thumb { flex: none; width: 88px; aspect-ratio: 1.91 / 1; border-radius: 4px; overflow: hidden; background: var(--line); }
+.pick-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
