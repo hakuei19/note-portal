@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://hakuei19.github.io/note-portal/</loc></url>
+  <url><loc>https://hakuei19.github.io/note-portal/creators/</loc></url>
+  <url><loc>https://hakuei19.github.io/note-portal/creators/kuji/</loc></url>
+  <url><loc>https://hakuei19.github.io/note-portal/creators/boat/</loc></url>
+  <url><loc>https://hakuei19.github.io/note-portal/creators/keiba/</loc></url>
   <url><loc>https://hakuei19.github.io/note-portal/brands/luna/</loc></url>
   <url><loc>https://hakuei19.github.io/note-portal/brands/ryu/</loc></url>
   <url><loc>https://hakuei19.github.io/note-portal/brands/saki/</loc></url>
